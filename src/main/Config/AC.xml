@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="MVC"/>
+    <context:property-placeholder location="classpath*:all.properties"/>
+
+
+    <bean id="DataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${database_driverClassName}"/>
+        <property name="url" value="${database_url}"/>
+        <property name="username" value="${database_username}"/>
+        <property name="password" value="${database_password}"/>
+    </bean>
+
+
+    <!--配置sqlSessionFactory 并将数据源注入-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--注入数据源-->
+        <property name="dataSource" ref="DataSource"/>
+        <!--指定要使用到到mybatis配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--用于配置mapper映射xml-->
+        <property name="mapperLocations" value="classpath*:Mapper.xml"/>
+        <!--classpath  和classpath*有什么区别-->
+    </bean>
+
+    <!-- 创建数据映射器-->
+    <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="MVC.DAO"/>
+    </bean>
+
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <!--指定映射文件 mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象-->
+        <property name="mapperInterface" value="MVC.DAO.userDAO"></property>
+        <!-- 指定sql会话工厂-->
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+
+
+
+
+
+
+</beans>
