@@ -23,19 +23,19 @@ public class dbOpreation {
 
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                System.out.println("//连接数据库");
+//                System.out.println("//连接数据库");
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stock_db", "root", "111111");
-                System.out.println("//创建表");
+//                System.out.println("//创建表");
                 stmt = conn.createStatement();
                 if(0L == stmt.executeLargeUpdate(creatsql)) {
-                    System.out.println("创建表成功");
+                    System.out.println("表 "+tableName+" 创建成功");
                 } else {
-                    System.out.println("创建表失败");
+                    System.out.println("表 "+tableName+" 创建失败");
                 }
 
                 stmt.close();
                 conn.close();
-                System.out.println("//关闭连接");
+//                System.out.println("//关闭连接");
             } catch (Exception var4) {
                 System.out.println("出错");
                 var4.printStackTrace();

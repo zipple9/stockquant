@@ -30,12 +30,10 @@ public class test {
 //        userDAO mapper = (userDAO) ac.getBean("userMapper");
 //        userDAO mapper=DAO.getMapper();
         user us = DAO.getMapper().selectByUsername("wang");
-
-
         System.out.println("ID: "+us.getId()+"\n"+"username: "+us.getUsername());
         System.out.println("password: "+us.getCode());
 
-        String tN="";
+//        dataProcess.allFileProcess();
 
 //        mapper.insertStockData(@Param("tableName") String tN,("stockdata")stockdata sd);
 
@@ -44,7 +42,7 @@ public class test {
 //        SqlSession session = sqlSessionFactory.openSession();
 
 
-        dataProcess.process();
+//        dataProcess.process();
 
 //        try{
 //        Connection.Response response = Jsoup.connect("http://www.ifeng.com/").timeout(3000).execute();
