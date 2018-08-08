@@ -19,4 +19,8 @@
         (#{stockdata.date},#{stockdata.open},#{stockdata.high},#{stockdata.low},#{stockdata.close},#{stockdata.volume},#{stockdata.amount})
     </insert>
 
+    <update id="createTable" >
+        create table ${tableName} (date DATE not null,open double not null,high double not null,low double not null,close double not null,volume double not null,amount double not null,PRIMARY KEY (date))
+    </update>
+
 </mapper>

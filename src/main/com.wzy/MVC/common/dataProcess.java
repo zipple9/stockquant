@@ -15,7 +15,7 @@ public class dataProcess {
         stockdata sd = new stockdata();
 
         String dir[]=new File("F:\\stockdata").list();
-        for(int i=0;i<5;i++){
+        for(int i=0;i<dir.length;i++){
             try {
 
                 File f = new File("F:\\stockdata\\"+dir[i]);
@@ -23,7 +23,9 @@ public class dataProcess {
                 br = new BufferedReader(e);
                 String tableName = br.readLine();
                 tableName = tableName.substring(0, 6) + tableName.substring(7, 11);
-                dbOpreation.createTable(tableName);
+//                dbOpreation.createTable(tableName);
+                DAO.getMapper().createTable(tableName);
+                System.out.println("表 "+tableName+" 创建成功"); //这个不算 建表成功的判断  假的
                 br.readLine();
 
                 String str;

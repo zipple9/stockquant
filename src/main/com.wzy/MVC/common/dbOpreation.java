@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class dbOpreation {
+public class dbOpreation {    //这个类目前没有用
 
     static String tableName;
     static String creatsql;
@@ -17,7 +17,14 @@ public class dbOpreation {
     public static void createTable(String tN) {
         if(tN != null && tN != "") {
             tableName = tN;
-            creatsql = "CREATE TABLE " + tableName + "(date DATE not null,open double not null,high double not null,low double not null,close double not null,volume double not null,amount double not null,PRIMARY KEY (date))";
+            creatsql = "CREATE TABLE " + tableName + "(date DATE not null," +
+                    "open double not null," +
+                    "high double not null," +
+                    "low double not null," +
+                    "close double not null," +
+                    "volume double not null," +
+                    "amount double not null," +
+                    "PRIMARY KEY (date))";
             Connection conn = null;
             Statement stmt = null;
 

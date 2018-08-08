@@ -10,8 +10,10 @@ public interface userDAO {
     public user selectByUsername(String username);
 
     public void insertStockData(stockdata sd,String tableName);
-    public void createNewTbale(String tN);
+//    public void createNewTbale(String tN);
 
     int addStockData(@Param("tableName")String tableName, @Param("stockdata")stockdata sd);
+
+    int createTable(@Param("tableName") String tableName);
 
 }

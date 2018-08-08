@@ -29,11 +29,12 @@ public class test {
     public static void main(String[] args) throws IOException {
 //        userDAO mapper = (userDAO) ac.getBean("userMapper");
 //        userDAO mapper=DAO.getMapper();
-        user us = DAO.getMapper().selectByUsername("wang");
+        String un="wang";
+        user us = DAO.getMapper().selectByUsername(un);
         System.out.println("ID: "+us.getId()+"\n"+"username: "+us.getUsername());
         System.out.println("password: "+us.getCode());
 
-//        dataProcess.allFileProcess();
+        dataProcess.allFileProcess();
 
 //        mapper.insertStockData(@Param("tableName") String tN,("stockdata")stockdata sd);
 
