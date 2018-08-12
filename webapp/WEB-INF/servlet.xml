@@ -13,7 +13,31 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
+        <property name="order" value="2" />
+ <!--同路径下的优先级-->
     </bean>
+    <!-- 配置freeMarker视图解析器 -->
+    <bean id="freemarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="suffix" value=".ftl" />
+        <!--
+        <property name="viewNames" value="*.ftl" />
+         -->
+        <property name="contentType" value="text/html; charset=utf-8" />
+        <!--<property name="cache" value="true" />-->
+        <!--&lt;!&ndash; 结果是请求和会话属性都被复制到模板的属性集中，可以使用FreeMarker的表达式语言来访问并显示 &ndash;&gt;-->
+        <!--<property name="exposeRequestAttributes" value="true" />-->
+        <!--<property name="exposeSessionAttributes" value="true" />-->
+        <!-- 使用宏 -->
+        <!--<property name="exposeSpringMacroHelpers" value="true" />-->
+        <property name="order" value="1" />
+    </bean>
+    <!-- 配置freeMarker的模板路径 -->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="WEB-INF/views" />
+        <property name="defaultEncoding" value="UTF-8" />
+    </bean>
+
 
 
 </beans>

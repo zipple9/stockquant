@@ -1,5 +1,6 @@
 package MVC;
 
+import MVC.DAO.DAO;
 import MVC.DAO.userDAO;
 import MVC.model.userLoginForm;
 import MVC.service.userService;
@@ -27,23 +28,29 @@ public class HomeController {
         return "index";
     }
     @RequestMapping("/login")
-    public String login(@RequestParam("username")String username,@RequestParam("password")String password){
+    public ModelAndView login(@RequestParam("username")String username,@RequestParam("password")String password){
         System.out.println("已执行login方法");
 //        userLoginForm usf=new userLoginForm(username,password);   // 这个总感觉没必要
         System.out.println("username:"+username);
         System.out.println("password:"+password);
 
-        ApplicationContext ac=new ClassPathXmlApplicationContext("AC.xml");
-        userDAO mapper = (userDAO) ac.getBean("userMapper");
+        userDAO mapper=DAO.getMapper();
         if(password.equals(mapper.selectByUsername(username).getCode())){
             System.out.println("login successful");
             user us=mapper.selectByUsername(username);
-            return "main";
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("main");
+            mv.addObject("u1", us.getUsername());
+
+
+            return mv;
         }
         else {
             System.out.println("username or password is wrong");
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("index");
+            return mv;
         }
-        return "index";
     }
 
 }

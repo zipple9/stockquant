@@ -1,19 +1,6 @@
 package MVC;
 
 import MVC.DAO.DAO;
-import MVC.DAO.userDAO;
-//import org.jsoup.Connection;
-//import org.jsoup.Jsoup;
-import MVC.common.dataProcess;
-import MVC.common.dbOpreation;
-import MVC.common.stockdata;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.*;
 
@@ -34,7 +21,10 @@ public class test {
         System.out.println("ID: "+us.getId()+"\n"+"username: "+us.getUsername());
         System.out.println("password: "+us.getCode());
 
-        dataProcess.allFileProcess();
+
+//        dataProcess.allFileProcess();
+
+
 
 //        mapper.insertStockData(@Param("tableName") String tN,("stockdata")stockdata sd);
 
