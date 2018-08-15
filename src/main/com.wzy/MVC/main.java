@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class main {
     public static ApplicationContext ac;
+    public static user userSession;
 
 
     static {

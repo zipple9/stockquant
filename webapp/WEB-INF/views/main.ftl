@@ -9,8 +9,20 @@
 </head>
 <body>
 
-<h1>欢迎登陆${u1}</h1>
+<h1>欢迎登陆 ${u1}</h1>
 <br>
-现在时间是
+现在时间是 ${.now}
+<form name="queryStock"  action="/main/query" method="post">
+    股票代码
+    <input type="text" name="stockName">
+    <br>
+     <input type="submit" name="queryStock" value="查询股票" "/>
+    <br>
+</form>
+
+<div>
+
+</div>
 </body>
+
 </html>

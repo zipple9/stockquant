@@ -1,6 +1,7 @@
 package MVC;
 
 import MVC.DAO.DAO;
+import MVC.DAO.userDAO;
 
 import java.io.*;
 
@@ -21,7 +22,8 @@ public class test {
         System.out.println("ID: "+us.getId()+"\n"+"username: "+us.getUsername());
         System.out.println("password: "+us.getCode());
 
-
+        userDAO mapper=DAO.getMapper();
+        System.out.println(mapper.selectByUsername("11"));
 //        dataProcess.allFileProcess();
 
 
