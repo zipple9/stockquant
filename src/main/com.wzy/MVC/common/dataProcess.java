@@ -24,7 +24,7 @@ public class dataProcess {
                 String tableName = br.readLine();
                 tableName = tableName.substring(0, 6) + tableName.substring(7, 11);
 //                dbOpreation.createTable(tableName);
-                DAO.getMapper().createTable(tableName);
+                DAO.getDAO().createTable(tableName);
                 System.out.println("表 "+tableName+" 创建成功"); //这个不算 建表成功的判断  假的
                 br.readLine();
 
@@ -38,7 +38,7 @@ public class dataProcess {
                     sd.setClose(Double.parseDouble(ar[4]));
                     sd.setVolume(Double.parseDouble(ar[5]));
                     sd.setAmount(Double.parseDouble(ar[6]));
-                    DAO.getMapper().addStockData(tableName, sd);
+                    DAO.getDAO().addStockData(tableName, sd);
                 }
                 System.out.println("表 "+tableName+" 写入完毕");
 

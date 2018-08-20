@@ -7,7 +7,7 @@ import static MVC.main.ac;
 
 
 public class DAO {
-    public static userDAO getMapper(){
+    public static userDAO getDAO(){
         userDAO mapper = (userDAO) ac.getBean("userMapper");
         return mapper;
     }

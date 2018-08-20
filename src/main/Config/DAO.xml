@@ -6,7 +6,7 @@
 类,其接口类就能够自动的找到相关的SQL语句进行绑定实现-->
 <mapper namespace="MVC.DAO.userDAO">
     <!--select表示查询,它的id名称必须与DAO层接口的方法名相同,否则无法绑定-->
-    <select id="selectByUsername" parameterType="string" resultType="MVC.user" >
+    <select id="selectByUsername" parameterType="String" resultType="MVC.user" >
         select * from users where username = #{username}
     </select>
     <select id="selectById" parameterType="int" resultType="MVC.user">
@@ -26,5 +26,42 @@
     <select id="queryStock" parameterType="String">
 
     </select>
+
+    <select id="getAllTableNames" resultType="String">
+        show tables
+    </select>
+
+    <select id="queryByStockId" parameterType="String" resultType="MVC.DAO.stockList">
+        select * from stocklist where stockid=#{stockid}
+    </select>
+    <select id="queryShow" resultType="MVC.common.stockdata">
+        select * from ${tableName}
+    </select>
+
+
+    <update id="deleteStockList">
+        drop table stocklist
+    </update>
+    <update id="createStockList">
+        create table stocklist
+        (
+        stockid varchar(6) not null,
+        stockname varchar(8) not null,
+        market varchar(4) default " ",
+        primary key (stockid)
+        )
+    </update>
+    <insert id="insertStockList" parameterType="List">
+        insert into stocklist (stockid,stockname)values
+        <foreach collection="list" item="stockInfoList" separator =",">
+            (
+            #{stockInfoList.stockid},
+            #{stockInfoList.stockname}
+            )
+        </foreach>
+    </insert>
+
+
+
 
 </mapper>

@@ -37,11 +37,11 @@ public class HomeController {
         System.out.println("username:"+username);
         System.out.println("password:"+password);
 
-        userDAO mapper=DAO.getMapper();
-        if(mapper.selectByUsername(username)!=null && password.equals(mapper.selectByUsername(username).getCode())){
+        userDAO Dao=DAO.getDAO();
+        if(Dao.selectByUsername(username)!=null && password.equals(Dao.selectByUsername(username).getCode())){
             //这边有个经典知识点复现：即&和&&的区别 前一个条件为f，后面就不判断了，不然后会有Nullpointer 异常
             System.out.println("login successful");
-            main.userSession=mapper.selectByUsername(username);
+            main.userSession=Dao.selectByUsername(username);
             ModelAndView mv = new ModelAndView();
             mv.setViewName("main");
             mv.addObject("u1", main.userSession.getUsername());

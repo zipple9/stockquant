@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MVC.DAO.updateStockListDAO">
+    <update id="deleteStockList" >
+        drop table stocklist
+    </update>
+
+
+    <update id="deleteStockList">
+        drop table stocklist
+    </update>
+    <update id="createStockList">
+        create table stocklist
+        (
+        stockid int not null,
+        stockname varchar not null,
+        market varchar not null,
+        primary key (stockid)
+        )
+    </update>
+    <insert id="insertStockList">
+        insert into stocklist values (600919,"shangsu","sh")
+    </insert>
+
+
+
+
+</mapper>

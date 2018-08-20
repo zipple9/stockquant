@@ -1,11 +1,21 @@
 package MVC;
 
 import MVC.DAO.DAO;
+import MVC.DAO.stockList;
+import MVC.DAO.updateStockListDAO;
 import MVC.DAO.userDAO;
+import MVC.common.stockdata;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static MVC.main.ac;
 
 public class test {
+    int abc=6;
 
 //    private static ApplicationContext ac;
 //    static {
@@ -18,30 +28,38 @@ public class test {
 //        userDAO mapper = (userDAO) ac.getBean("userMapper");
 //        userDAO mapper=DAO.getMapper();
         String un="wang";
-        user us = DAO.getMapper().selectByUsername(un);
+        user us = DAO.getDAO().selectByUsername(un);
         System.out.println("ID: "+us.getId()+"\n"+"username: "+us.getUsername());
         System.out.println("password: "+us.getCode());
 
-        userDAO mapper=DAO.getMapper();
-        System.out.println(mapper.selectByUsername("11"));
-//        dataProcess.allFileProcess();
 
 
 
-//        mapper.insertStockData(@Param("tableName") String tN,("stockdata")stockdata sd);
+        List l=new ArrayList();
+        Map<String,String> m1=new HashMap<String,String>();
+        Map<String,String> m2=new HashMap<String,String>();
+        m1.put("id","001");
+        m1.put("name","jsyh");
+        m2.put("id","002");
+        m2.put("name","gsyh");
+        l.add(m1);
+        l.add(m2);
 
-//        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
-//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-//        SqlSession session = sqlSessionFactory.openSession();
 
 
-//        dataProcess.process();
+        userDAO Dao=DAO.getDAO();
+        stockList st=Dao.queryByStockId("600919");
+        stockdata[] sl=Dao.queryShow("600919江苏银行");
+        System.out.println(st.stockname);
+        for (stockdata i:sl){
+            System.out.println(i.date);
 
-//        try{
-//        Connection.Response response = Jsoup.connect("http://www.ifeng.com/").timeout(3000).execute();
-//        System.out.println(response.body());
-//        }
-//        catch (Exception e){}
+        }
+
+
+
+
+
 
     }
 }
