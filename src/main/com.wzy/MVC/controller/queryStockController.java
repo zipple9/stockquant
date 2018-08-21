@@ -3,6 +3,7 @@ package MVC.controller;
 import MVC.DAO.DAO;
 import MVC.DAO.stockList;
 import MVC.DAO.userDAO;
+import MVC.common.stockdata;
 import MVC.main;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
+import java.util.List;
 
 @Controller
 public class queryStockController {
 
     @RequestMapping("/main/query")
-    public ModelAndView queryStock(@RequestParam("stockName") String stockName){
+    public ModelAndView queryStock(@RequestParam("stockId") String stockId){
         userDAO Dao=DAO.getDAO();
 
         boolean state=false;  //检验查询状态
@@ -27,8 +29,10 @@ public class queryStockController {
         mv.addObject("u1", main.userSession.getUsername());
 
         try {
-//            stockList st = Dao.queryByStockId(stockName);
-            mv.addObject("d1",Dao.queryByStockId(stockName).stockname);
+            String tableName=stockId+Dao.queryByStockId(stockId).stockname;
+            List<stockdata> sl=Dao.queryShow(tableName);
+            mv.addObject("d1",Dao.queryByStockId(stockId).stockname);
+            mv.addObject("d2",sl);
             state=true;
         }
         catch (Exception e){
@@ -36,7 +40,7 @@ public class queryStockController {
             state=false;
         }
         finally {
-            System.out.println("web查询股票代码 "+stockName+": "+state);
+            System.out.println("web查询股票代码 "+stockId+": "+state);
             return mv;
         }
      }

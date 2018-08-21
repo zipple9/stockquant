@@ -3,14 +3,14 @@ package MVC.common;
 
 public class stockdata {
 
-    public int stockNum = 0;
-    public String date;
-    public double open;
-    public double high;
-    public double low;
-    public double close;
-    public double volume;
-    public double amount;
+    private int stockNum = 0;
+    private String date;
+    private double open;
+    private double high;
+    private double low;
+    private double close;
+    private double volume;
+    private double amount;
 
 
     public void setStockNum(int stockNum) {
@@ -43,5 +43,34 @@ public class stockdata {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+
+    public String getDate() {
+        return date;
+    }
+
+    public double getOpen() {
+        return open;
+    }
+
+    public double getHigh() {
+        return high;
+    }
+
+    public double getLow() {
+        return low;
+    }
+
+    public double getClose() {
+        return close;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public double getAmount() {
+        return amount;
     }
 }

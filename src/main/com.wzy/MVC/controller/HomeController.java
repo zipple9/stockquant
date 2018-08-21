@@ -45,6 +45,7 @@ public class HomeController {
             ModelAndView mv = new ModelAndView();
             mv.setViewName("main");
             mv.addObject("u1", main.userSession.getUsername());
+//            mv.addObject("d2", null);
             return mv;
         }
         else {

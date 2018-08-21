@@ -21,7 +21,19 @@ public class test {
 //    static {
 //        ac = new ClassPathXmlApplicationContext("AC.xml");
 //    }
-
+    public static int fb(int n){
+        int tar;
+        if(n==1){
+            return 1;
+        }
+        if(n==2){
+            return 1;
+        }
+        if(n>2){
+            return fb(n-1)+fb(n-2);
+        }
+        return 0;
+    }
 
 
     public static void main(String[] args) throws IOException {
@@ -45,16 +57,12 @@ public class test {
         l.add(m1);
         l.add(m2);
 
+        System.out.println(fb(6));
+
+        System.out.println(un.toCharArray()[0]);
 
 
-        userDAO Dao=DAO.getDAO();
-        stockList st=Dao.queryByStockId("600919");
-        stockdata[] sl=Dao.queryShow("600919江苏银行");
-        System.out.println(st.stockname);
-        for (stockdata i:sl){
-            System.out.println(i.date);
 
-        }
 
 
 

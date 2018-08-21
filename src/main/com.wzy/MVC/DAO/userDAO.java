@@ -22,7 +22,7 @@ public interface userDAO {
     String[] getAllTableNames();
 
     stockList queryByStockId(String stockid);
-    stockdata[] queryShow(@Param("tableName") String tableName);
+    List<stockdata> queryShow(@Param("tableName") String tableName);
 
     void deleteStockList();
     void createStockList();
