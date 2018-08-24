@@ -28,4 +28,12 @@ public class user {
     public void setUsername(String username) {
         this.username = username;
     }
+
+
+    public user(int id,String username,String code){
+        this.id=id;
+        this.username=username;
+        this.code=code;
+    }
+    public user(){};
 }

@@ -5,22 +5,16 @@ import MVC.DAO.stockList;
 import MVC.DAO.updateStockListDAO;
 import MVC.DAO.userDAO;
 import MVC.common.stockdata;
-
+import MVC.controller.HomeController;
+import MVC.controller.queryStockController;
+import org.json.JSONArray;
+import org.junit.Test;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static MVC.main.ac;
 
 public class test {
-    int abc=6;
-
-//    private static ApplicationContext ac;
-//    static {
-//        ac = new ClassPathXmlApplicationContext("AC.xml");
-//    }
     public static int fb(int n){
         int tar;
         if(n==1){
@@ -34,6 +28,19 @@ public class test {
         }
         return 0;
     }
+
+    @Test
+    public void unitTest(){
+        HomeController hc=new HomeController();
+        System.out.print(hc.controllerTest());
+    }
+    @Test
+    public void unitTest2(){
+        queryStockController qc=new queryStockController();
+        qc.queryStock("600919");
+
+    }
+
 
 
     public static void main(String[] args) throws IOException {
@@ -57,11 +64,9 @@ public class test {
         l.add(m1);
         l.add(m2);
 
-        System.out.println(fb(6));
-
-        System.out.println(un.toCharArray()[0]);
-
-
+        List l2=new ArrayList();
+        l2.add(1123);
+        l2.add(23321);
 
 
 
@@ -69,5 +74,12 @@ public class test {
 
 
 
-    }
+
+
+
+
+
+
+
+        }
 }

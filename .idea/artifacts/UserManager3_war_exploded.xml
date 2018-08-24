@@ -26,6 +26,9 @@
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.0" />
           <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.28" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:5.0.8.RELEASE" />
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: org.json:json:20160810" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="UserManager3/web/Web" />

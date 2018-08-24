@@ -7,6 +7,7 @@ import MVC.user;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,14 +22,12 @@ public class HomeController {
         System.out.println(mv.getViewName());
         return mv;
     }
-
+    @ResponseBody
     @RequestMapping("/test")
-    public ModelAndView showIndex(){
-        System.out.println("已执行showTest方法");
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("test");
-
-        return mv;
+    public user controllerTest(){
+        System.out.println("已执行test方法");
+        user us=new user(010003,"xiaomao","999999");
+        return us;
     }
     @RequestMapping("/login")
     public ModelAndView login(@RequestParam("username")String username,@RequestParam("password")String password){
