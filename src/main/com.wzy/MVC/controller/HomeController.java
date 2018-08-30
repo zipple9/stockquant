@@ -29,6 +29,12 @@ public class HomeController {
         user us=new user(010003,"xiaomao","999999");
         return us;
     }
+    @RequestMapping("/test2")
+    public String controllerTest2(){
+        System.out.println("已执行test2方法");
+        return "test";
+    }
+
     @RequestMapping("/login")
     public ModelAndView login(@RequestParam("username")String username,@RequestParam("password")String password){
         System.out.println("已执行login方法");

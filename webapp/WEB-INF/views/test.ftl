@@ -2,20 +2,6 @@
 <head>
     <title>欢迎</title>
     <script>
-function test() {
-    var stockName = document.getElementById("stockName");
-    var xhr=new XMLHttpRequest();
-
-    xhr.onreadystatechange=function()
-    {
-        if (xhr.readyState==4 && xhr.status==200)
-        {
-            document.getElementById("myDiv").innerHTML=xhr.responseText;
-        }
-    }
-    xhr.open("post","/test/11",true);
-    xhr.send();
-}
     </script>
 </head>
 <body>
